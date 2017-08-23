@@ -32,6 +32,10 @@
 #
 # [*mastercf_source*]     - (string)
 #
+# [*mastercf_content*]    - (string)
+#
+# [*mastercf_template*]   - (string)
+#
 # [*master_smtp*]         - (string)
 #
 # [*master_smtps*]        - (string)
@@ -86,7 +90,10 @@ class postfix (
   String                          $maincf_source       = "puppet:///modules/${module_name}/main.cf",
   Boolean                         $manage_conffiles    = true,
   Boolean                         $manage_mailx        = true,
-  Optional[String]                $mastercf_source     = undef,
+  Optional[String]                $mastercf_source     = undef,         # source file to be copied as master.cf
+  Optional[String]                $mastercf_template   = undef,         # a optional string with the template file to use
+  Optional[String]                $mastercf_content    = undef,         # optional content for the master.cf
+  Optional[String]                $mastercf_content    = undef,         # provide the Content of master.cf
   Optional[String]                $master_smtp         = undef,         # postfix_master_smtp
   Optional[String]                $master_smtps        = undef,         # postfix_master_smtps
   Optional[String]                $master_submission   = undef,         # postfix_master_submission
